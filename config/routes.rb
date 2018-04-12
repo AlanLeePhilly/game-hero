@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
   
+  
+  
   namespace :api do
     namespace :v1 do
+      get '/users/getCurrentUser', to: 'users#currentUser'
       resources :games, only: [:index, :show, :create]
     
       resources :users, only: [:show] do  
