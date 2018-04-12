@@ -2,9 +2,8 @@ import React from 'react';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import NavBar from './components/NavBar';
-import Dashboard from './containers/Dashboard'
-import reducer from './reducers';
+import Dashboard from './subApps/dashboard/containers/Dashboard'
+import reducer from './rootReducer';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -19,7 +18,7 @@ const App = props => {
   return(
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path='/' component={NavBar}>
+        <Route path='/'>
           <IndexRoute component={Dashboard} />
         </Route>
       </Router>
