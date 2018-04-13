@@ -2,7 +2,10 @@ import React from 'react';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+
 import Dashboard from './subApps/dashboard/containers/Dashboard'
+import EventShowContainer from './subApps/eventShowPage/containers/EventShowContainer'
+
 import reducer from './rootReducer';
 import thunk from 'redux-thunk';
 
@@ -20,6 +23,7 @@ const App = props => {
       <Router history={browserHistory}>
         <Route path='/'>
           <IndexRoute component={Dashboard} />
+          <Route path='/event/:id' component={EventShowContainer} />
         </Route>
       </Router>
     </Provider>
