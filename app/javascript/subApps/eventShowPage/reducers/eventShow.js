@@ -1,11 +1,12 @@
 let initialState = {
   data: {
-    name: "Guest",
+    name: "No-Data Jamboree",
+    datetime: "2018-04-13T01:57:08.293Z",
     host: {
       id: 0,
-      name: ""
+      name: "Johnny No-Luck"
     },
-    participants: [],
+    event_participants: [],
     games: []
   }
 }

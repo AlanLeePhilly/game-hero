@@ -1,25 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
-import SomeContainer from './SomeContainer'
-
-import {setThing, setAnotherThing} from './actions/thingActions'
+import { fetchEventShow } from '../actions/eventShow'
 
 
 class EventShowContainer extends React.Component {
   constructor(props) {
     super(props);
-    
-    this.someFunction = this.someFunction.bind(this)
   }
-  someFunction(stuff){
-    this.props.setDevice(stuff)
+
+  componentDidMount(){
+    this.props.fetchEventShow(this.props.params.id)
   }
 
   render(){  
-    
+    let event = this.props.event
     return(
       <div className="EventShowContainer">
+        <h1>{event.name}</h1>
+        <h4>Host: {event.host.name}</h4>
       </div>
     )
   }
@@ -27,15 +26,13 @@ class EventShowContainer extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setThing: (name) => dispatch(setThing(name)),
-    setAnotherThing: (bool) => dispatch(setAnotherThing(bool))
+    fetchEventShow: (id) => dispatch(fetchEventShow(id))
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    aPiece: state.EventShowContainer.aPiece,
-    anOther: state.EventShowContainer.anOther
+    event: state.eventShow.data
   }
 }
 

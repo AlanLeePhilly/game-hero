@@ -6,7 +6,6 @@ import { fetchCurrentUser } from '../../../sharedResources/actions/currentUser'
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    
   }
 
   componentDidMount(){
