@@ -23,7 +23,7 @@ const App = props => {
       <Router history={browserHistory}>
         <Route path='/'>
           <IndexRoute component={Dashboard} />
-          <Route path='/event/:id' component={EventShowContainer} />
+          <Route path='/events/:id' component={EventShowContainer} />
         </Route>
       </Router>
     </Provider>

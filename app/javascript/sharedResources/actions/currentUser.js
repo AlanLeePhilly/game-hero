@@ -3,17 +3,20 @@ export const FETCH_CURRENT_USER_SUCCESS = 'FETCH_CURRENT_USER_SUCCESS';
 export const FETCH_CURRENT_USER_FAILURE = 'FETCH_CURRENT_USER_FAILURE';
 
 export const fetchCurrentUserBegin = () => ({
-  type: FETCH_CURRENT_USER_BEGIN
+  type: FETCH_CURRENT_USER_BEGIN,
+  loading: true
 });
 
 export const fetchCurrentUserSuccess = user => ({
   type: FETCH_CURRENT_USER_SUCCESS,
-  currentUser: user 
+  currentUser: user,
+  loading: false
 })
 
 export const fetchCurrentUserFailure = error => ({
   type: FETCH_CURRENT_USER_FAILURE,
-  payload: error 
+  error: true,
+  loading: false
 })
 
 export const fetchCurrentUser = () => (dispatch) => {
@@ -24,10 +27,11 @@ export const fetchCurrentUser = () => (dispatch) => {
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchCurrentUserSuccess(json));
-        json;
-      })
-      .catch(error => dispatch(fetchCurrentUserFailure(error)));
+          dispatch(fetchCurrentUserSuccess(json)) })
+      .catch(error => {
+        dispatch(fetchCurrentUserFailure(error))
+      }
+      );
   }
 
 
