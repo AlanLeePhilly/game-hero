@@ -1,6 +1,6 @@
 # README
 
-Game-Hero is an app for organizing a group board-game night.
+Game-Hero is an app for organizing group board-game events.
 Users can create an event and invite other participants via email or invite code.
 Participants can join (with an account or as a guest), choose which games they're bringing, and state their preferences for which games and other participants they wish to play with (or not!).
 Game-Hero will generate possible combinations of players and games based on player preferences and the constraints of the game (min/max players)
