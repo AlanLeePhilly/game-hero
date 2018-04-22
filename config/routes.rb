@@ -3,14 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
   
   
-  
   namespace :api do
     namespace :v1 do
+      get '/games/search', to: 'games#search'
       get '/users/getCurrentUser', to: 'users#currentUser'
       resources :games, only: [:index, :show, :create]
     
       resources :users, only: [:show] do  
-        resources :events, only: [:index, :show, :create, :update] 
+        resources :events, only: [:index, :show, :create, :update]
+        resources :games, only: [:index] 
       end
       
       resources :events, only: [:show] do

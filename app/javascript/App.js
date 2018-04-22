@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import Dashboard from './subApps/dashboard/containers/Dashboard'
 import EventShowContainer from './subApps/eventShowPage/containers/EventShowContainer'
+import GamesCollectionContainer from './subApps/userGamesCollection/containers/GamesCollectionContainer'
 
 import reducer from './rootReducer';
 import thunk from 'redux-thunk';
@@ -23,7 +24,8 @@ const App = props => {
       <Router history={browserHistory}>
         <Route path='/'>
           <IndexRoute component={Dashboard} />
-          <Route path='/events/:id' component={EventShowContainer} />
+          <Route path='events/:id' component={EventShowContainer} />
+          <Route path='users/:id/collection' component={GamesCollectionContainer} />
         </Route>
       </Router>
     </Provider>

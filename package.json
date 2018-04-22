@@ -29,8 +29,8 @@
     "phantomjs-prebuilt": "~2.1.14",
     "react-addons-test-utils": "~15.6.2",
     "redux-devtools": "3.2.0",
-    "webpack-dev-server": "^2.11.1",
-    "webpack-cli": "^2.0.10"
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^2.11.1"
   },
   "engines": {
     "node": ">=4.0"

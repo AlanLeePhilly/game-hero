@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { fetchCurrentUser } from '../../../sharedResources/actions/currentUser'
@@ -13,11 +14,11 @@ class Dashboard extends React.Component {
   }
 
   render(){  
-    let userName = this.props.currentUser.name
+    let currentUser = this.props.currentUser
     return(
       <div className="Dashboard">
-        <h1>Greetings, {userName}!</h1>
-        <div>View Games Collection</div>
+        <h1>Greetings, {currentUser.name}!</h1>
+        <Link to={`users/${currentUser.id}/collection`}>View Games Collection</Link>
         <div>View Upcomming Events</div>
         <div>Join Existing Event</div>
         <div>Create New Event</div>
